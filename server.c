@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:46 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/16 09:31:57 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/16 10:47:57 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(int argc, char* argv[])
 {
-
+    (void) argc;
+    (void) argv;
     return 0;
 }
