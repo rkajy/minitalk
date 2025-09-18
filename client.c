@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:34 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/18 17:02:07 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/18 20:33:28 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char* stringMessageToBinary(char message[])
     int k;
     char* binary;
 
-    binary = malloc(ft_strlen(message) * 8);
+    binary = malloc(ft_strlen(message) * 8 +1);
     if (!binary)
         return (NULL);
     
@@ -39,7 +39,7 @@ char* stringMessageToBinary(char message[])
         i=7;
         while (i >= 0)
         {
-            binary[k] = (message[j] >> i) & 1;
+            binary[k] = ((message[j] >> i) & 1) ? '1' : '0';
             i--;
             k++;
         }
@@ -69,22 +69,18 @@ void    send_client_request_to_server(int server_pid, char message[])
         else if(binary[i] == '1')
             kill(server_pid, SIGUSR2);
         i++;
+        usleep(300);
     }
-    
+    free(binary);
 }
 
 int main(int argc, char* argv[])
 {
     int server_pid;
-    char *binary;
     if(argc == 3)
     {
         server_pid = atoi(argv[1]);
         send_client_request_to_server(server_pid, argv[2]);
-        binary = stringMessageToBinary("A");
-
-        // don't forget for memory leaks issue
-        free(binary);
     }
     else{
         ft_printf("Error: Invalid input\n");
