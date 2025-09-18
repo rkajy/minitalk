@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:46 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/18 22:58:34 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/18 23:13:40 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,19 @@
 
 void	handler(int sig, siginfo_t *info, void *context)
 {
-	static unsigned char	current_char = 0;
-	static int				bint_count = 0;
+	static t_data	data;
 
 	(void)context;
 	(void)info;
-	current_char <<= 1;
+	data.current_char <<= 1;
 	if (sig == SIGUSR2)
-		current_char = current_char | 1;
-	bint_count++;
-	if (bint_count == 8)
+		data.current_char = data.current_char | 1;
+	data.bit_count++;
+	if (data.bit_count == 8)
 	{
-		write(1, &current_char, 1);
-		current_char = 0;
-		bint_count = 0;
+		write(1, &data.current_char, 1);
+		data.current_char = 0;
+		data.bit_count = 0;
 	}
 }
 
