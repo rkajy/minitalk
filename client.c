@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:34 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/18 22:33:33 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/18 22:59:53 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	send_client_request_to_server(int server_pid, char message[])
 		else if (binary[i] == '1')
 			kill(server_pid, SIGUSR2);
 		i++;
-		usleep(300);
+		usleep(500);
 	}
 	free(binary);
 }
