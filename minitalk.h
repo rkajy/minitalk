@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:19 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/18 23:13:40 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/19 17:59:02 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_data
 {
 	unsigned char	current_char;
 	int				bit_count;
+	char			buffer[1024];
+	int				buf_index;
 }					t_data;
 
 // client

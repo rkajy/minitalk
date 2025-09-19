@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:34 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/18 23:05:54 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:09:38 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ char	*string_message_to_binary(char message[])
 	int		j;
 	int		k;
 	char	*binary;
+	char	c;
 
-	binary = malloc(ft_strlen(message) * 8 + 1);
+	binary = malloc(ft_strlen(message) * 8 + 8 + 1);
 	if (!binary)
 		return (NULL);
 	j = -1;
@@ -48,9 +49,20 @@ char	*string_message_to_binary(char message[])
 			k++;
 		}
 	}
+	c = '\0'; //
+	i = 7; //
+	while (i >= 0) //
+	{ // 
+		if ((c >> i--) & 1) //
+			binary[k] = '1'; //
+		else //
+			binary[k] = '0'; //
+		k++; //
+	} //
 	binary[k] = '\0';
 	return (binary);
 }
+
 
 void	send_client_request_to_server(int server_pid, char message[])
 {
@@ -62,7 +74,7 @@ void	send_client_request_to_server(int server_pid, char message[])
 		server_pid, message);
 	i = 0;
 	binary = string_message_to_binary(message);
-	binary_size = ft_strlen(message) * 8;
+	binary_size = ft_strlen(binary) * 8;
 	while (i < binary_size)
 	{
 		if (binary[i] == '0')
@@ -70,7 +82,7 @@ void	send_client_request_to_server(int server_pid, char message[])
 		else if (binary[i] == '1')
 			kill(server_pid, SIGUSR2);
 		i++;
-		usleep(500);
+		usleep(300);
 	}
 	free(binary);
 }

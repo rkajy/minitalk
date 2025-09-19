@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:46 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/18 23:13:40 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/19 19:29:45 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,12 @@ void	handler(int sig, siginfo_t *info, void *context)
 	data.bit_count++;
 	if (data.bit_count == 8)
 	{
-		write(1, &data.current_char, 1);
+		data.buffer[data.buf_index++] = data.current_char;
+		if(data.current_char == '\0' || data.buf_index >= 1023)
+		{
+			ft_printf("%s\n", data.buffer);
+			data.buf_index = 0;
+		}
 		data.current_char = 0;
 		data.bit_count = 0;
 	}
