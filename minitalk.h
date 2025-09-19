@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:19 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/19 17:59:02 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:33:16 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ typedef struct s_data
 }					t_data;
 
 // client
-void				print_binary_array(char *binary, size_t size);
-char				*string_message_to_binary(char message[]);
+void				send_char(int server_pid, char c);
 void				send_client_request_to_server(int server_pid,
 						char message[]);
 
