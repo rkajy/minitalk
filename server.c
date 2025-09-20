@@ -6,7 +6,7 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:46 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/19 20:35:40 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/20 13:23:02 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ int	main(void)
 	pid = getpid();
 	ft_printf("The server process ID is %d\n", pid);
 	while (1)
-	{
 		pause();
-	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: radandri <radandri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/16 09:28:36 by radandri          #+#    #+#              #
-#    Updated: 2025/09/16 19:16:29 by radandri         ###   ########.fr        #
+#    Updated: 2025/09/20 13:14:20 by radandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,9 @@ LIBFT_PRINTF_DIR = libftprintf
 
 LIBFT_PRINTF = $(LIBFT_PRINTF_DIR)/libftprintf.a
 
-CLIENT_SRCS = client.c \
-			  minitalk.c \
+CLIENT_SRCS = client.c
 
-SERVER_SRCS = server.c \
-			  minitalk.c \
+SERVER_SRCS = server.c
 
 CLIENT_OBJS = $(CLIENT_SRCS:.c=.o)
 
