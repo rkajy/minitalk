@@ -6,12 +6,25 @@
 /*   By: radandri <radandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:30:34 by radandri          #+#    #+#             */
-/*   Updated: 2025/09/20 13:25:12 by radandri         ###   ########.fr       */
+/*   Updated: 2025/09/20 13:51:32 by radandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+/**
+ * @brief Sends a character to the server bit by bit using signals.
+ *
+ * Iterates through each bit of the character 'c', from the most significant
+ * to the least significant. For each bit, sends a signal to the server
+ * identified by 'server_pid':
+ * - SIGUSR2 if the bit is 1
+ * - SIGUSR1 if the bit is 0
+ * Waits 300 microseconds after each signal.
+ *
+ * @param server_pid PID of the server to send the character to.
+ * @param c Character to send.
+ */
 void	send_char(int server_pid, char c)
 {
 	int	i;
