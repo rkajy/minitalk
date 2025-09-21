@@ -6,7 +6,7 @@
 #    By: radandri <radandri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/16 09:28:36 by radandri          #+#    #+#              #
-#    Updated: 2025/09/20 13:14:20 by radandri         ###   ########.fr        #
+#    Updated: 2025/09/21 12:33:24 by radandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 SERVER_NAME = server
 CLIENT_NAME = client
 
-LIBFT_PRINTF_DIR = libftprintf
+LIBFT_PRINTF_DIR = libft_printf
 
 LIBFT_PRINTF = $(LIBFT_PRINTF_DIR)/libftprintf.a
 
